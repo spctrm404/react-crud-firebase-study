@@ -1,0 +1,70 @@
+.main {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 2fr 3fr;
+  gap: 3.75rem;
+  max-width: 75rem;
+  min-height: 100vh;
+  padding: 3.75rem;
+  margin-inline: auto;
+  background-color: oklch(100% 0.0125 240deg);
+}
+
+.title {
+  grid-row: 1;
+  grid-column: 1;
+  color: oklch(40% 0.1 240deg);
+}
+
+.form {
+  position: sticky;
+  top: 3.75rem;
+  display: grid;
+  grid-template-columns: 1fr 3rem;
+  grid-row: 2;
+  grid-column: 1;
+  align-self: start;
+  border: 1px solid oklch(40% 0.0125 240deg / 0%);
+  transition: all 200ms ease-out;
+
+  &__text {
+    padding-inline: 1rem;
+    color: oklch(10% 0.1 240deg);
+    background-color: oklch(80% 0.1 240deg);
+    border: 0 solid oklch(100% 0.0125 240deg);
+
+    &::placeholder {
+      color: oklch(50% 0.025 240deg);
+    }
+
+    &:focus {
+      outline: none;
+      @at-root .form:has(&) {
+        border: 1px solid oklch(40% 0.0125 240deg / 100%);
+      }
+    }
+  }
+
+  &__submit {
+    aspect-ratio: 1 / 1;
+    color: oklch(90% 0.0125 240deg);
+    background-color: oklch(50% 0.2 240deg);
+    border: 0 solid oklch(40% 0.0125 240deg);
+    transition: all 200ms ease-out;
+
+    &:hover {
+      color: oklch(100% 0.0125 240deg);
+      background-color: oklch(60% 0.2 240deg);
+    }
+
+    &:focus-visible {
+      border: 2px solid oklch(40% 0.0125 240deg);
+      outline: none;
+    }
+  }
+}
+
+.to-do-list {
+  grid-row: 2;
+  grid-column: 2;
+}
